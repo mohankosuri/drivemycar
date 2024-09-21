@@ -22,7 +22,8 @@ const Navbar = () => {
           <div>+91 9874563210</div>
         </div>
         <FaSearch className="text-xl mr-4" />
-        <button className="bg-red-500 text-white px-4 py-2 rounded font-bold">Login/Signup</button>
+        <NavLink to={'./login'}>
+        <button className="bg-red-500 text-white px-4 py-2 rounded font-bold">Login/Signup</button></NavLink>
       </div>
     </nav>
   );
