@@ -1,4 +1,4 @@
-import React from 'react';
+ 
  // Ensure font-awesome is installed in your project
 
 const Footer = () => {

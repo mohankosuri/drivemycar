@@ -1,4 +1,4 @@
-import React from 'react';
+ 
 import CarCard from '../components/CarCard';
 import Filterscard from '../components/Filter';
 import SearchBar from '../components/SearchBar';

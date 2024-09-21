@@ -1,6 +1,5 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCar, faStar, faMapMarkerAlt, faCogs, faCog, faGasPump, faChargingStation, faHome, faPlane,faS,faCarSide,faTruck,faMusic } from '@fortawesome/free-solid-svg-icons';
+ 
+import { faCar, faStar, faMapMarkerAlt, faCogs, faCog, faGasPump, faChargingStation, faHome, faPlane,faCarSide,faTruck, } from '@fortawesome/free-solid-svg-icons';
 import FilterButton from './FilterButton';
 
 const Filterscard = () => {

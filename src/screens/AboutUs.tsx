@@ -1,5 +1,4 @@
-import React from 'react'
-import CarBooking from '../components/Carbooking'
+ 
 
 const AboutUs = () => {
   return (

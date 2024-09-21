@@ -1,4 +1,4 @@
-import React from 'react';
+ 
 import { FaSearch, FaCheckSquare, FaCreditCard, FaCar, FaArrowRight } from 'react-icons/fa';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
 import { Carousel } from 'react-responsive-carousel';

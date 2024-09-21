@@ -1,5 +1,5 @@
  
-import React from 'react';
+ 
 import { FaPhoneAlt, FaSearch } from 'react-icons/fa';
 import Sidenav from './Sidenav';
 import { NavLink } from 'react-router-dom';

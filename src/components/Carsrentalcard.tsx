@@ -1,5 +1,5 @@
-// src/CarRentalCard.js
-import React from 'react';
+ 
+ 
 
 const CarRentalCard = () => {
   return (

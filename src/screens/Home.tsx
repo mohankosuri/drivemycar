@@ -1,5 +1,4 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
+ 
 import CarsFilter from '../components/CarsFilter'
 import CarTypes from '../components/Cartypes'
 import CarRental from '../components/OfferingforRental'
