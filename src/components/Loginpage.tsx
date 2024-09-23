@@ -1,22 +1,28 @@
 import { NavLink } from "react-router-dom";
+ 
+import Googlelogo from '../assets/google.png'
 
-const LoginPage = () => {
-    return (
-      <div className="flex h-[551px]">
-        {/* Left Side Image */}
-        <div className="w-1/2 bg-cover bg-center" style={{ backgroundImage: "url('https://images.news18.com/ibnlive/uploads/2023/04/classic-car.jpg')" }}>
-          <div className="flex items-center justify-center h-full bg-opacity-30">
-            <h1 className="text-white text-4xl font-bold">Drive My Car</h1>
-          </div>
-        </div>
+const LoginPage = ({login}:any) => {
+  return (
+    <div
+      className="relative flex items-center justify-end h-screen bg-cover bg-center p-[100px]"
+      style={{
+        backgroundImage:
+          "url('https://www.bentleymotors.com/content/dam/bm/websites/bmcom/bentleymotors-com/homepage/launch/Mulliner%20Article%20Teaser%204.jpg/_jcr_content/renditions/original.image_file.1024.439.file/Mulliner%20Article%20Teaser%204.jpg')",
+      }}
+    >
+      
+      <div className="absolute inset-0  text-white font-bold text-[100px] flex justify-start items-center ml-[100px]">
+      Drive My <span className="text-red-500">Car</span>
+      </div>
+
+     
+      <div className="relative bg-transparent p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h2 className="text-2xl font-bold mb-6 text-white flex justify-center">Login to Your Account</h2>
+
         
-        {/* Right Side Login Form */}
-        <div className="w-1/2 flex items-center justify-center bg-white">
-          <form className="w-3/4 max-w-sm">
-            <h2 className="text-2xl font-bold mb-6 text-gray-800">Login to Your Account</h2>
-            
-            <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="email">Email</label>
+        <div className="mb-4">
+              <label className="block text-white text-sm font-semibold mb-2" htmlFor="email">Email</label>
               <input
                 type="email"
                 id="email"
@@ -25,9 +31,8 @@ const LoginPage = () => {
                 required
               />
             </div>
-  
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="password">Password</label>
+              <label className="block text-white text-sm font-semibold mb-2" htmlFor="password">Password</label>
               <input
                 type="password"
                 id="password"
@@ -41,23 +46,28 @@ const LoginPage = () => {
             <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mb-4">
               Login
             </button>
-  
-            {/* Google Login Button */}
-            <button className="w-full flex items-center justify-center bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
-              <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 12v1.5l4 4h4.5v4.5h-5.5l-4-4-4 4H1.5v-4.5h4l4-4H3.5v-4.5h5l4 4z" />
-              </svg>
+
+             
+
+            <button className="w-full flex items-center justify-center bg-white text-black font-bold py-2 px-4 rounded" onClick={()=>login()}>
+               <img src={Googlelogo} className="h-8 w-8"/>
               Login with Google
             </button>
   
-            <p className="mt-4 text-gray-600 text-sm text-center">
+            <p className="mt-4 text-white text-sm text-center">
               Don't have an account? <a href="#" className="text-blue-500 hover:underline"><NavLink to={'/signup'}>Sign up</NavLink></a>
             </p>
-          </form>
-        </div>
+        
+
+        
+ 
+
+         
+
+        
       </div>
-    );
-  };
-  
-  export default LoginPage;
-  
+    </div>
+  );
+};
+
+export default LoginPage;
