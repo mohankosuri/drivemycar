@@ -1,6 +1,16 @@
  
+import { useNavigate } from "react-router-dom";
+
+ 
 
 function CarsFilter() {
+
+  const navigate = useNavigate();
+
+  const handleFindCarsClick = () => {
+    navigate('/cars');
+  };
+
   return (
     <div className="background-image flex flex-col justify-center items-center text-white h-[550px]"
          style={{ backgroundImage: "url('https://img.freepik.com/free-photo/sports-car-races-through-dark-blurred-motion-generative-ai_188544-12490.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
@@ -54,7 +64,7 @@ function CarsFilter() {
 
           {/* Find a Car Button */}
           <div className="flex items-end">
-            <button className="bg-red-400 hover:bg-red-500 text-white p-2 rounded font-bold px-6">Find a Car</button>
+            <button className="bg-red-400 hover:bg-red-500 text-white p-2 rounded font-bold px-6" onClick={handleFindCarsClick}>Find a Car</button>
           </div>
         </div>
       </div>

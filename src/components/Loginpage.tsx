@@ -50,7 +50,7 @@ const LoginPage = ({login}:any) => {
              
 
             <button className="w-full flex items-center justify-center bg-white text-black font-bold py-2 px-4 rounded" onClick={()=>login()}>
-               <img src={Googlelogo} className="h-8 w-8"/>
+               <img src={Googlelogo} className="h-8 w-8 mr-4"/>
               Login with Google
             </button>
   

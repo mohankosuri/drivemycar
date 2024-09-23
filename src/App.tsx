@@ -19,7 +19,11 @@ interface Profile {
 
 export default function App() {
   const [user, setUser] = useState<any>(null);
-  const [profile, setProfile] = useState<Profile | null>(null);
+  const [profile, setProfile] = useState<Profile | null>(() => {
+    
+    const savedProfile = localStorage.getItem('profile');
+    return savedProfile ? JSON.parse(savedProfile) : null;
+  });
   const navigate = useNavigate();
 
   const login = useGoogleLogin({
@@ -38,6 +42,7 @@ export default function App() {
         })
         .then((res) => {
           setProfile(res.data);
+          localStorage.setItem('profile', JSON.stringify(res.data)); // Save profile to localStorage
         })
         .catch((err) => console.log(err));
     }
@@ -47,6 +52,7 @@ export default function App() {
     googleLogout();
     setProfile(null);
     setUser(null);
+    localStorage.removeItem('profile'); // Clear profile from localStorage
     navigate('/login');
   };
 
@@ -61,9 +67,9 @@ export default function App() {
             <Route path="/about" element={<AboutUs />} />
             <Route path="/cars" element={<Cars />} />
             <Route path="/carbooking" element={<CarBooking />} />
-            <Route path="/login" element={<Navigate to="/" />} />  
+            <Route path="/login" element={<Navigate to="/" />} /> {/* Redirect logged-in users */}
             <Route path="/signup" element={<SignUpPage />} />
-            
+            {/* Catch all unknown routes and redirect */}
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </div>
@@ -71,7 +77,7 @@ export default function App() {
         <Routes>
           <Route path="/login" element={<LoginPage login={login} />} />
           <Route path="/signup" element={<SignUpPage />} />
-          <Route path="*" element={<Navigate to="/login" />} />  
+          <Route path="*" element={<Navigate to="/login" />} /> {/* Redirect to login if not authenticated */}
         </Routes>
       )}
     </div>
