@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Home from "./screens/Home";
 import Contact from "./screens/Contact";
 import AboutUs from "./screens/AboutUs";
@@ -19,8 +19,8 @@ interface Profile {
 
 export default function App() {
   const [user, setUser] = useState<any>(null);
-  const [profile, setProfile] = useState<Profile | null>(null);  
-  const navigate = useNavigate(); 
+  const [profile, setProfile] = useState<Profile | null>(null);
+  const navigate = useNavigate();
 
   const login = useGoogleLogin({
     onSuccess: (codeResponse: any) => setUser(codeResponse),
@@ -38,24 +38,16 @@ export default function App() {
         })
         .then((res) => {
           setProfile(res.data);
-          navigate('/');  
         })
         .catch((err) => console.log(err));
     }
-  }, [user, navigate]);
-
-  useEffect(() => {
-    if (profile) {
-      
-      navigate('/');
-    }
-  }, [profile, navigate]);
+  }, [user]);
 
   const logOut = () => {
     googleLogout();
     setProfile(null);
-    setUser(null);  
-    navigate('/login'); 
+    setUser(null);
+    navigate('/login');
   };
 
   return (
@@ -69,18 +61,18 @@ export default function App() {
             <Route path="/about" element={<AboutUs />} />
             <Route path="/cars" element={<Cars />} />
             <Route path="/carbooking" element={<CarBooking />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/login" element={<Navigate to="/" />} />  
             <Route path="/signup" element={<SignUpPage />} />
+            
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </div>
       ) : (
-        <div>
-           
-          <Routes>
-            <Route path='/login' element={<LoginPage login={login}/>}></Route>
-            <Route path='/signup' element={<SignUpPage/>}></Route>
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/login" element={<LoginPage login={login} />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="*" element={<Navigate to="/login" />} />  
+        </Routes>
       )}
     </div>
   );
